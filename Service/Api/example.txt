@@ -1,0 +1,32 @@
+
+//Importa todas las dependencias
+
+require_once('../Functions/Token/access.php');
+require_once('../Functions/Models/functions.php');
+require_once('../Service/Sql/querys.php');
+
+//Crea tus propias funciones (API/example.php)
+
+    public static function New_Function()
+    {/* Verificamos si se hace peticion */
+        if ($_SERVER['REQUEST_METHOD'] == "GET") {
+            /* si contiene variables de GET */
+            if (isset($_GET)) {
+                /* convertimos a objecto */
+                $Object = (object) $_GET;
+                $SQL = new Inject();
+                Manager::Get_All_Object($SQL->MostrarDatos($Object));
+            }
+        }
+    }
+
+
+//consultas personalizadas (SQL/query.php)
+
+class Inject
+{
+    public function MostrarDatos(object $Object)
+    {
+        return "SELECT * FROM cliente;";
+    }
+}
