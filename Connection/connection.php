@@ -5,7 +5,7 @@ class MySQLDatabase
     private $host = "localhost";
     private $username = "root";
     private $password = "";
-    private $database = "pruebas";
+    private $database = "";
     private $connection;
 
     public function Open_Connection()
